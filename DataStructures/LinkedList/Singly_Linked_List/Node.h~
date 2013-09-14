@@ -1,0 +1,11 @@
+class Node
+{
+ private:
+  int val;
+  Node *next;
+ public:
+  Node();
+  bool SetVal(int);
+  int GetVal(int);
+  ~Node();
+};

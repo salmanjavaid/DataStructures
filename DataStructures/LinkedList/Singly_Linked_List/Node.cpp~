@@ -1,0 +1,17 @@
+#include "Node.h"
+
+Node::Node()
+{
+  val = 0;
+}
+
+bool Node::SetVal(int val)
+{
+  val = val;
+  return true;
+}
+
+int Node::GetVal(int Index)
+{
+  return val;
+}
