@@ -10,7 +10,6 @@ template<class T>
 void Node<T>::SetVal(T Val)
 {
   val = Val;
-
 }
 
 template<class T>

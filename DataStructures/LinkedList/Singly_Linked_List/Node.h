@@ -3,7 +3,6 @@ class Node
 {
  private:
   T val;
-
  public:
   Node *next;
   Node();
