@@ -63,8 +63,8 @@ LinkedList<T>::~LinkedList()
   while(temp != 0)
     {
       printf("%i\n", temp->GetVal(0));
-      temp = temp->next;
       temp_1 = temp;
+      temp = temp->next;
       delete temp_1;
     }  
 }
