@@ -16,5 +16,5 @@ void Node<T>::SetVal(T Val)
 template<class T>
 T Node::GetVal(T Index)
 {
-  return val;
+  return this.val;
 }
