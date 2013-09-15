@@ -30,3 +30,9 @@ T Node<T>::GetVal(T Index)
 {
   return val;
 }
+
+template<class T>
+Node<T>::~Node()
+{
+  
+}
