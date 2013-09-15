@@ -7,10 +7,10 @@ Node<T>::Node()
 }
 
 template<class T>
-bool Node<T>::SetVal(T Val)
+void Node<T>::SetVal(T Val)
 {
   val = Val;
-  return true;
+
 }
 
 template<class T>
