@@ -1,16 +1,18 @@
 #include "LinkedList.h"
 
-LinkedList::LinkedList()
+template<class T>
+LinkedList<T>::LinkedList()
 {
   head = 0;
   tail = 0;
 }
 
-bool LinkedList::Insert(int num)
+template<class T>
+void LinkedList<T>::Insert(T num)
 {
   if (head == 0)
     {
-      Node *head_node = new Node();
+      Node<T> *head_node = new Node();
       head_node->SetVal(num);
       head = head_node;
       tail = head_node;
@@ -19,17 +21,17 @@ bool LinkedList::Insert(int num)
     }
   else
     {
-      Node *head_node = new Node();
+      Node<T> *head_node = new Node();
       head_node->SetVal(num);
       tail->next = head_node;
       tail = head_node;
     }
-  return true;
+
 }
 
-void LinkedList::Print()
+void LinkedList<T>::Print()
 {
-  Node *temp = head;
+  Node<T> *temp = head;
   while(temp != 0)
     {
       printf("%i\n", temp->GetVal(0));
@@ -38,7 +40,7 @@ void LinkedList::Print()
 }
 
 
-LinkedList::~LinkedList()
+LinkedList<T>::~LinkedList()
 {
 
 

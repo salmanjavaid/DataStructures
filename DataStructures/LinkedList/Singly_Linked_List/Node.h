@@ -1,12 +1,13 @@
+template<class T>
 class Node
 {
  private:
-  int val;
+  T val;
 
  public:
   Node *next;
   Node();
-  bool SetVal(int);
-  int GetVal(int);
+  void SetVal(T);
+  T GetVal(T);
   ~Node();
 };

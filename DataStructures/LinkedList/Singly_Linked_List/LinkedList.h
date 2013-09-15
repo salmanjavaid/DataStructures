@@ -1,13 +1,15 @@
 #include "Node.h"
 #include <stdio.h>
+
+template<class T>
 class LinkedList
 {
  private:
-  Node *head, *tail;
+  Node<T> *head, *tail;
  public:
   LinkedList();
-  bool Insert(int);
-  void Delete_Node(int);
+  void Insert(T);
+  void Delete_Node();
   void Delete_List();
   void Print();
   ~LinkedList();

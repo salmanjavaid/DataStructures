@@ -1,17 +1,20 @@
 #include "Node.h"
 
-Node::Node()
+template<class T>
+Node<T>::Node()
 {
   val = 0;
 }
 
-bool Node::SetVal(int Val)
+template<class T>
+bool Node<T>::SetVal(T Val)
 {
   val = Val;
   return true;
 }
 
-int Node::GetVal(int Index)
+template<class T>
+T Node::GetVal(T Index)
 {
   return val;
 }
