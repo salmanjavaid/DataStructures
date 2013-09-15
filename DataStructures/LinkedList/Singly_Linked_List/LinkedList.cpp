@@ -12,7 +12,7 @@ void LinkedList<T>::Insert(T num)
 {
   if (head == 0)
     {
-      Node<T> *head_node = new Node();
+      Node<T> *head_node = new Node<T>();
       head_node->SetVal(num);
       head = head_node;
       tail = head_node;
@@ -21,7 +21,7 @@ void LinkedList<T>::Insert(T num)
     }
   else
     {
-      Node<T> *head_node = new Node();
+      Node<T> *head_node = new Node<T>();
       head_node->SetVal(num);
       tail->next = head_node;
       tail = head_node;
@@ -29,6 +29,7 @@ void LinkedList<T>::Insert(T num)
 
 }
 
+template<class T>
 void LinkedList<T>::Print()
 {
   Node<T> *temp = head;
@@ -39,7 +40,7 @@ void LinkedList<T>::Print()
     }
 }
 
-
+template<class T>
 LinkedList<T>::~LinkedList()
 {
 
