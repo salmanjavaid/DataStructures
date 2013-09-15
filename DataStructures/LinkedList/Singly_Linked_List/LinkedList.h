@@ -59,8 +59,13 @@ void LinkedList<T>::Print()
 template<class T>
 LinkedList<T>::~LinkedList()
 {
-
-
+  Node<T> *temp = head, *temp_1;
+  while(temp != 0)
+    {
+      temp = temp->next;
+      temp_1 = temp;
+      delete temp_1;
+    }  
 }
 
 
