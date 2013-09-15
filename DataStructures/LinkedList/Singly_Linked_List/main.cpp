@@ -2,7 +2,7 @@
 
 int main()
 {
-  LinkedList<int> L_1();
+  LinkedList<int> L_1;
 
   L_1.Insert(5);
   // L_1.Insert(10);
