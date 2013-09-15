@@ -5,8 +5,8 @@ class Node
   T val;
 
  public:
-  Node *next;
-  Node();
+  Node<T> *next;
+  Node<T>();
   void SetVal(T);
   T GetVal(T);
   ~Node();
