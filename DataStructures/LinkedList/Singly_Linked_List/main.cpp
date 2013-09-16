@@ -28,7 +28,8 @@ void int_input()
 
 int main()
 {
-
-
+  int_input();
+  printf("\n\n\n");
+  char_input();
   return 0;
 }
