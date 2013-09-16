@@ -36,7 +36,7 @@ void LinkedList<T>::Print(int choice)
   while(temp != 0)
     {
       if (choice == 1){
-	  printf("%s\n", temp->GetVal(0));
+	  printf("%c\n", temp->GetVal(0));
       }
       else{
 	  printf("%i\n", temp->GetVal(0));
