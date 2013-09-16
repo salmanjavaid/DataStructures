@@ -11,7 +11,7 @@ class LinkedList
   void Insert(T);
   void Delete_Node();
   void Delete_List();
-  void Print();
+  void Print(int);
   ~LinkedList();
 };
 
@@ -46,12 +46,17 @@ void LinkedList<T>::Insert(T num)
 }
 
 template<class T>
-void LinkedList<T>::Print()
+void LinkedList<T>::Print(int choice)
 {
   Node<T> *temp = head;
   while(temp != 0)
     {
-      printf("%i\n", temp->GetVal(0));
+      if (choice == 1){
+	  printf("%s\n", temp->GetVal(0));
+      }
+      else{
+	  printf("%i\n", temp->GetVal(0));
+      }
       temp = temp->next;
     }
 }
@@ -62,7 +67,7 @@ LinkedList<T>::~LinkedList()
   Node<T> *temp = head, *temp_1;
   while(temp != 0)
     {
-      printf("%i\n", temp->GetVal(0));
+
       temp_1 = temp;
       temp = temp->next;
       delete temp_1;

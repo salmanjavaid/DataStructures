@@ -30,12 +30,17 @@ void LinkedList<T>::Insert(T num)
 }
 
 template<class T>
-void LinkedList<T>::Print()
+void LinkedList<T>::Print(int choice)
 {
   Node<T> *temp = head;
   while(temp != 0)
     {
-      printf("%i\n", temp->GetVal(0));
+      if (choice == 1){
+	  printf("%s\n", temp->GetVal(0));
+      }
+      else{
+	  printf("%i\n", temp->GetVal(0));
+      }
       temp = temp->next;
     }
 }
