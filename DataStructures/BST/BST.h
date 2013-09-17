@@ -7,10 +7,10 @@ class BST
   Node<T> *root;
   T val;
  public:
-  Node();
+  Node<T>();
   void Insert(T);
   void Delete();
-  ~Node();
+  ~Node<T>();
 };
 
 
