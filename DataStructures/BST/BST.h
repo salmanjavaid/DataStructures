@@ -7,21 +7,21 @@ class BST
   Node<T> *root;
   T val;
  public:
-  Node<T>();
+  BST<T>();
   void Insert(T);
   void Delete();
-  ~Node<T>();
+  ~BST<T>();
 };
 
 
 template<class T>
-Node<T>::Node()
+BST<T>::BST()
 {
 
 }
 
 template<class T>
-void Node<T>::Insert(T Val)
+void BST<T>::Insert(T Val)
 {
   Node<T>* temp = root, *prev;
   while(temp != 0)
