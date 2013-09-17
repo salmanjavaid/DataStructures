@@ -10,7 +10,7 @@ class Node
   void SetVal(T);
   T GetVal();
   ~Node();
-}
+};
 
 
 template<class T>

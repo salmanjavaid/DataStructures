@@ -11,7 +11,7 @@ class BST
   void Insert(T);
   void Delete();
   ~Node();
-}
+};
 
 
 template<class T>
