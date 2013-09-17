@@ -4,7 +4,7 @@ template<class T>
 class BST
 {
  private:
-  Node *root;
+  Node<T> *root;
   T val;
  public:
   Node();
