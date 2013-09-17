@@ -4,8 +4,8 @@ class Node
  private:
   T val;
  public:
-  Node *left;
-  Node *right;
+  Node<T> *left;
+  Node<T> *right;
   Node();
   void SetVal(T);
   T GetVal();

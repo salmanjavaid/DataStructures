@@ -1,3 +1,5 @@
+#include "Node.h"
+
 template<class T>
 class BST
 {
