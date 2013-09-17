@@ -24,26 +24,36 @@ template<class T>
 void BST<T>::Insert(T Val)
 {
   Node<T>* temp = root, *prev;
-  while(temp != 0)
+  if (root != 0)
     {
-      prev = temp;
-      if (temp.val > Val)
+      while(temp != 0)
 	{
-	  temp = temp->right;
-      	}
+	  prev = temp;
+	  if (temp.val > Val)
+	    {
+	      temp = temp->right;
+	    }
+	  else
+	    {
+	      temp = temp->left;
+	    }
+	}
+
+      Node<T>* nw = new Node<T>();
+      nw->val = Val;
+      if (prev->val > Val)
+	{
+	  prev->right = nw;
+	}
       else
 	{
-	  temp = temp->left;
+	  prev->left = nw;
 	}
-    }
-  Node<T>* nw = new Node<T>();
-  nw->val = Val;
-  if (prev->val > Val)
-    {
-      prev->right = nw;
     }
   else
     {
-      prev->left = nw;
+      Node<T>* nw = new Node<T>();
+      nw->val = Val;
+      root = nw;
     }
 }
