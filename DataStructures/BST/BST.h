@@ -19,7 +19,29 @@ Node<T>::Node()
 }
 
 template<class T>
-void Node<T>::Node(T Val)
+void Node<T>::Insert(T Val)
 {
-  Node* temp = root;
+  Node<T>* temp = root, *prev;
+  while(temp != 0)
+    {
+      prev = temp;
+      if (temp.val > Val)
+	{
+	  temp = temp->right;
+      	}
+      else
+	{
+	  temp = temp->left;
+	}
+    }
+  Node* nw = new Node<T>();
+  nw->val = Val;
+  if (prev->val > Val)
+    {
+      prev->right = nw;
+    }
+  else
+    {
+      prev->left = nw;
+    }
 }
