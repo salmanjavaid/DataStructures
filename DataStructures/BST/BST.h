@@ -36,7 +36,7 @@ void BST<T>::Insert(T Val)
 	  temp = temp->left;
 	}
     }
-  Node* nw = new Node<T>();
+  Node<T>* nw = new Node();
   nw->val = Val;
   if (prev->val > Val)
     {
