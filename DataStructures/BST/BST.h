@@ -67,27 +67,37 @@ void BST<T>::__Wrapper_For_Print() {
 template<class T>
 void BST<T>::Delete(T val) {
 	if (root) {
-		Node<T> *prev = Predecessor(val), *fwd, *temp;
-		if (prev->GetVal() > val) {
-				if (prev->left->left) {
-					fwd = prev->left->left;
-					temp = prev->left;
-					prev->left = fwd;
-					delete temp;
+		if (root->GetVal() != val) {
+				Node<T> *prev = Predecessor(val), *fwd, *temp;
+				if (prev->GetVal() > val) {
+						if (prev->left->left) {
+							fwd = prev->left->left;
+							temp = prev->left;
+							prev->left = fwd;
+							delete temp;
+						} else {
+							temp = prev->left;
+							delete temp;
+						}
 				} else {
-					temp = prev->left;
-					delete temp;
+					if (prev->right->right) {
+						fwd = prev->right->right;
+						temp = prev->right;
+						prev->right = fwd;
+						delete temp;
+					} else {
+						temp = prev->right;
+						delete temp;
+					}
 				}
 		} else {
-			if (prev->right->right) {
-				fwd = prev->right->right;
-				temp = prev->right;
-				prev->right = fwd;
-				delete temp;
-			} else {
-				temp = prev->right;
-				delete temp;
-			}
+			Node<T> *temp = root, *fwd = root->right, 
+				*update_left = root->right->left, *update_right = root->right->right;
+			fwd->left = root->left;
+			fwd->right = update_left;
+			fwd->right->right = update_right;
+			delete root;
+			root = fwd;
 		}
 	}
 }
@@ -113,7 +123,8 @@ Node<T>* BST<T>::Predecessor(T val) {
 				}
 			}
 		}
-	}
+	} else { return 0; }
+
 }
 
 

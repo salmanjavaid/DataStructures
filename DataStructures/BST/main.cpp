@@ -10,7 +10,7 @@ int main() {
 	B.Insert(25);
 	B.Insert(7);
 	B.Insert(16);
-	B.Delete(18);
+	B.Delete(10);
 	B.__Wrapper_For_Print();
 	return 0;
 }
