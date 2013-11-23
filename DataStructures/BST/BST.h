@@ -1,59 +1,129 @@
 #include "Node.h"
+#include <iostream>
+using namespace std;
 
 template<class T>
-class BST
-{
+class BST {
  private:
   Node<T> *root;
-  T val;
  public:
-  BST<T>();
+  BST<T>(T);
   void Insert(T);
-  void Delete();
+  void __Wrapper_For_Print();
+  void InOrder(Node<T>*);
+  Node<T>* Predecessor(T);
+  void Delete(T);
   ~BST<T>();
 };
 
 
 template<class T>
-BST<T>::BST()
-{
+BST<T>::BST(T value) {
+	root = new Node<T>();
+	root->SetVal(value);
+}
+
+template<class T>
+BST<T>::~BST() {
 
 }
 
 template<class T>
-void BST<T>::Insert(T Val)
-{
+void BST<T>::Insert(T Val) {
+
   Node<T>* temp = root, *prev;
-  if (root != 0)
-    {
-      while(temp != 0)
-	{
-	  prev = temp;
-	  if (temp.val > Val)
-	    {
-	      temp = temp->right;
-	    }
-	  else
-	    {
-	      temp = temp->left;
-	    }
-	}
+  if (root != 0) {
+      while(temp != 0) {
+		  prev = temp;
+		  if (temp->GetVal() > Val) {
+		      temp = temp->left;
+		    }
+		  else {
+		      temp = temp->right;
+		    }
+	  }
 
       Node<T>* nw = new Node<T>();
-      nw->val = Val;
-      if (prev->val > Val)
-	{
-	  prev->right = nw;
-	}
-      else
-	{
-	  prev->left = nw;
-	}
-    }
-  else
-    {
-      Node<T>* nw = new Node<T>();
-      nw->val = Val;
-      root = nw;
-    }
+	  nw->SetVal(Val);
+	  if (prev->GetVal() > Val) {
+		  prev->left = nw;
+		}
+      else {
+		  prev->right = nw;
+		}
+    } else {
+	      Node<T>* nw = new Node<T>();
+		  nw->SetVal(Val);
+		  root = nw;
+	    }
 }
+
+template<class T>
+void BST<T>::__Wrapper_For_Print() {
+	InOrder(this->root);
+}
+
+
+template<class T>
+void BST<T>::Delete(T val) {
+	if (root) {
+		Node<T> *prev = Predecessor(val), *fwd, *temp;
+		if (prev->GetVal() > val) {
+				if (prev->left->left) {
+					fwd = prev->left->left;
+					temp = prev->left;
+					prev->left = fwd;
+					delete temp;
+				} else {
+					temp = prev->left;
+					delete temp;
+				}
+		} else {
+			if (prev->right->right) {
+				fwd = prev->right->right;
+				temp = prev->right;
+				prev->right = fwd;
+				delete temp;
+			} else {
+				temp = prev->right;
+				delete temp;
+			}
+		}
+	}
+}
+
+template<class T> 
+Node<T>* BST<T>::Predecessor(T val) {
+	if (root) {
+		Node<T> *temp = root, *prev;
+		while (temp) {
+			prev = temp;
+			if (temp->GetVal() > val) {
+				if (temp->left->GetVal() == val) {
+					return temp;
+				} else {
+					temp = temp->left;
+				}
+			}
+			else if (temp->GetVal() < val) {
+				if (temp->right->GetVal() == val) {
+					return temp;
+				} else {
+					temp = temp->right;
+				}
+			}
+		}
+	}
+}
+
+
+template<class T>
+void BST<T>::InOrder(Node<T>* temp) {
+	if (temp) {
+		cout<<temp->GetVal()<<endl;
+		InOrder(temp->left);
+		InOrder(temp->right);
+	}
+}
+
+
